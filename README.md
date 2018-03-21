@@ -72,6 +72,21 @@ graph.addVertices([v0, v1, v2, v3, v4, v5, v6, v7, v8]);
 
 # Supported Operations
 
+## BFS Traversal
+
+You can perform **breath first traversal** in the graph
+
+```javascript
+var bfs = graph.bfs();
+console.log(bfs);
+```
+
+This will print the following array in the console
+
+```json
+["0", "1", "7", "2", "6", "8", "3", "5", "4"]
+```
+
 ## Minimum Spanning Tree
 
 You can get minimum distance from source vertex to all other connected vertices
@@ -116,14 +131,14 @@ This function returns false if the destination is not reachable
 
 ## Utilities
 
-You can get the name of the vertex object as follows
+1.  You can get the name of the vertex object as follows
 
 ```javascript
 var v = new Vertex("0");
 var name = v.name;
 ```
 
-You can search a vertex object by name in the graph object as follows
+2.  You can search a vertex object by name in the graph object as follows
 
 ```javascript
 var graph = new Graph();
