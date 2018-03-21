@@ -54,9 +54,9 @@ export class Graph {
       this.vertices.forEach(vertex => {
         // If it is the source keep its distance as 0
         if (vertex.name == source) {
-          set[vertex.name] = { distance: 0, parent: vertex.name };
+          set[vertex.name] = { distance: 0, parent: null };
         } else {
-          set[vertex.name] = { distance: Infinity, parent: vertex.name };
+          set[vertex.name] = { distance: Infinity, parent: null };
         }
       });
       // Keep doing stuffs untill all vertices are transfered to spt
@@ -68,10 +68,11 @@ export class Graph {
             diffSet[vertexName] = set[vertexName];
           }
         });
+
         // Find the vertex having minimum distance in set
         let min = { name: "", distance: Infinity, parent: "" };
         Object.keys(diffSet).forEach(vertexName => {
-          if (diffSet[vertexName].distance < min.distance) {
+          if (diffSet[vertexName].distance <= min.distance) {
             min.name = vertexName;
             min.distance = diffSet[vertexName].distance;
             min.parent = diffSet[vertexName].parent;
