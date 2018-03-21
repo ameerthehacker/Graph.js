@@ -1,4 +1,5 @@
 import { Queue } from "./queue";
+import { isArray } from "util";
 
 // Class for creating vertex
 export class Vertex {
@@ -31,11 +32,21 @@ export class Graph {
   }
 
   addVertices(vertices) {
-    if (typeof vertices == "object" || typeof vertices == "array") {
+    if (isArray(vertices)) {
       vertices.forEach(vertex => {
+        if (this.findVertexByName(vertex.name)) {
+          throw new Error(
+            `Vertex with name ${vertex.name} already exists in the graph!`
+          );
+        }
         this.vertices.push(vertex);
       });
     } else {
+      if (this.findVertexByName(vertices.name)) {
+        throw new Error(
+          `Vertex with name ${vertices.name} already exists in the graph!`
+        );
+      }
       this.vertices.push(vertices);
     }
   }
@@ -95,8 +106,9 @@ export class Graph {
         });
       }
       return spt;
+    } else {
+      throw new Error(`Vertex with name ${source} not found`);
     }
-    return null;
   }
 
   dijkstra(source, destination) {
@@ -117,8 +129,9 @@ export class Graph {
         }
       }
       return path.reverse();
+    } else {
+      throw new Error(`Vertex with name ${source} not found`);
     }
-    return null;
   }
 
   bfs(source) {
