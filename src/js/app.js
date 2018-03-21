@@ -1,31 +1,33 @@
 import { Vertex, Graph } from "./graph";
 
-let a = new Vertex("a");
-let b = new Vertex("b");
-let c = new Vertex("c");
-let d = new Vertex("d");
-let e = new Vertex("e");
-let f = new Vertex("f");
-let g = new Vertex("g");
-let h = new Vertex("h");
-let i = new Vertex("i");
+let v0 = new Vertex("0");
+let v1 = new Vertex("1");
+let v2 = new Vertex("2");
+let v3 = new Vertex("3");
+let v4 = new Vertex("4");
+let v5 = new Vertex("5");
+let v6 = new Vertex("6");
+let v7 = new Vertex("7");
+let v8 = new Vertex("8");
 
-a.connect(b, 4);
-a.connect(h, 8);
-b.connect(h, 11);
-b.connect(c, 8);
-h.connect(g, 1);
-h.connect(i, 7);
-c.connect(i, 2);
-g.connect(i, 6);
-c.connect(d, 7);
-g.connect(f, 2);
-c.connect(f, 4);
-d.connect(f, 14);
-d.connect(e, 9);
-f.connect(e, 10);
+v0.connect(v1, 4);
+v0.connect(v7, 8);
+v1.connect(v7, 11);
+v1.connect(v2, 8);
+v7.connect(v6, 1);
+v7.connect(v8, 7);
+v2.connect(v8, 2);
+v6.connect(v8, 6);
+v2.connect(v3, 7);
+v6.connect(v5, 2);
+v2.connect(v5, 4);
+v3.connect(v5, 14);
+v3.connect(v4, 9);
+v5.connect(v4, 10);
 
 let graph = new Graph();
-graph.addVertices([a, b, c, d, e, f, g, h, i]);
+graph.addVertices([v0, v1, v2, v3, v4, v5, v6, v7, v8]);
 
-console.log(graph.dijkstra("a", "e"));
+console.log(graph.bfs("0"));
+console.log(graph.getSPT("0"));
+console.log(graph.dijkstra("0", "4"));
