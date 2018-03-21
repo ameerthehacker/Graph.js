@@ -7,7 +7,7 @@ A simple graph ADT made for JavaScript :fire:
 1.  Download the file **graph.min.js** from **dist** directory
 2.  Include the JavaScript file in your webpage
 
-```javascript
+```html
 <script src="graph.js" type="text/javascript">
 ```
 
