@@ -148,7 +148,7 @@ export class Graph {
 
         if (!vertex.visited) {
           vertex.visited = true;
-          bfsResult.push(vertex);
+          bfsResult.push(vertex.name);
         }
         vertex.edges.forEach(edge => {
           if (!edge.toVertex.visited) {
