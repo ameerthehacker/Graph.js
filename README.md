@@ -117,7 +117,7 @@ This will print the following JSON in the console
 You can find the shortest path between two vertices using **Dijkstra** algorithm
 
 ```javascript
-var path = graph.dijkstra("0");
+var path = graph.dijkstra("0", "4");
 console.log(path);
 ```
 
