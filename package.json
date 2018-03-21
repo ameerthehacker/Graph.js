@@ -4,11 +4,10 @@
   "description": "It is a graph ADT for javascript",
   "main": "index.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp build"
   },
-  "keywords": [
-    "gulp"
-  ],
+  "keywords": ["gulp", "graph", "djktra"],
   "author": "ameerthehacker",
   "license": "MIT",
   "devDependencies": {

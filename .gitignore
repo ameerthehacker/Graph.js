@@ -60,3 +60,4 @@ typings/
 # dist directory
 dist/
 !dist/.gitkeep
+!dist/graph.min.js
