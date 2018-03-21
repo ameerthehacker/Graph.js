@@ -28,4 +28,4 @@ f.connect(e, 10);
 let graph = new Graph();
 graph.addVertices([a, b, c, d, e, f, g, h, i]);
 
-console.log(graph.getSPT("a"));
+console.log(graph.dijkstra("a", "e"));

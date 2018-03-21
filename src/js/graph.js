@@ -29,6 +29,7 @@ export class Graph {
   constructor() {
     this.vertices = [];
   }
+
   addVertices(vertices) {
     if (typeof vertices == "object" || typeof vertices == "array") {
       vertices.forEach(vertex => {
@@ -38,14 +39,17 @@ export class Graph {
       this.vertices.push(vertices);
     }
   }
+
   setVisitedStatus(visitedStatus) {
     this.vertices.forEach(vertex => {
       vertex.visited = visitedStatus;
     });
   }
+
   findVertexByName(name) {
     return this.vertices.find(vertex => vertex.name == name);
   }
+
   getSPT(source) {
     const sourceVertex = this.findVertexByName(source);
     if (sourceVertex != null) {
@@ -92,7 +96,31 @@ export class Graph {
       }
       return spt;
     }
+    return null;
   }
+
+  dijkstra(source, destination) {
+    // Get the minimum spanning tree
+    const spt = this.getSPT(source);
+    // Initialize backrub with the destination
+    let path = [destination];
+    if (spt != null && spt[destination] != null) {
+      let vertex = spt[destination].parent;
+      // If the destination and source are same don't return false
+      if (vertex == null && source != destination) {
+        return false;
+      } else {
+        // Traverse through the vertices until you find the parent is null
+        while (vertex != null) {
+          path.push(vertex);
+          vertex = spt[vertex].parent;
+        }
+      }
+      return path.reverse();
+    }
+    return null;
+  }
+
   bfs(source) {
     const sourceVertex = this.findVertexByName(source);
     const queue = new Queue();
